@@ -1,0 +1,84 @@
+.takenote-bar{
+    border: 1.2px solid silver;
+    width:560px;
+    height: 40px;
+    margin-left: 330px;
+    margin-top: 40px;
+    border-radius:6px;
+    justify-content: space-between;
+    display: flex;
+    box-sizing:inherit;
+    box-shadow: .4px 0.4px gainsboro, 1px 0 0.9em silver;
+    font-family: Roboto,Arial,sans-serif;
+    color: darkslategray;
+    font-weight: 400;
+    letter-spacing: .01428571em;
+}
+
+.takenote-editor{
+    border: 1.2px solid silver;
+    width:560px;
+    min-height: 128px;
+    margin-left: 330px;
+    margin-top: 40px;
+    border-radius:6px;
+    display: flex;
+    flex-direction: column;
+    align-content: baseline;
+    box-shadow: .4px 0.4px gainsboro, 1px 0 0.9em silver;
+   
+}
+
+.notetitle{
+
+    display: flex;
+
+}
+.options-icons{
+
+    padding-right: 15px;
+}
+
+    #textarea {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    padding-left: 10px;
+    padding-top: 10px;
+    font-family: Roboto,Arial,sans-serif;
+}
+
+
+.MuiButton-text{
+ color:  black !important ;   
+ text-transform: capitalize !important;
+
+}
+.close{
+    margin-left: 155px;
+}
+
+
+
+.userpic_ct{
+    border:1px solid white ;
+    width:20px;
+    border-radius: 100px;
+    height: 20px;
+    background-image: url(https://www.gstatic.com/images/branding/product/2x/avatar_square_blue_120dp.png);
+    background-size: cover;
+    box-shadow: .4px 0.4px gainsboro, 1px 0 0.9em silver;
+    margin-right:5px;
+    margin-left: 5px;
+    
+}
+
+.collaborators_avatar{
+    /* border :2px solid red; */
+    display: flex;
+    max-width:500px;
+    height: 26px;
+    padding:10px;
+    flex-wrap: wrap;
+}

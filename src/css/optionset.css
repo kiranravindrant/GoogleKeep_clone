@@ -1,0 +1,10 @@
+.options-container{
+
+/* border: 2px solid red;     */
+display: flex;
+width:42%
+}
+
+#arch:active{
+    color:darkblue;
+}

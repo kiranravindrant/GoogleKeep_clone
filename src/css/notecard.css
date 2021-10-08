@@ -1,0 +1,77 @@
+.notecard-editor{
+    border: 1.2px solid silver;
+    width: 97%;
+    min-height: 110px;
+    margin-left: 10%;
+    margin-top: 10%;
+    border-radius:6px;
+    display: flex;
+    flex-direction: column;
+    align-content: baseline;
+     box-shadow: .4px 0.4px gainsboro, 1px 0 0.9em silver ; 
+   
+}
+
+
+
+    #textarea-note {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    padding-left: 10px;
+    font-family: Roboto,Arial,sans-serif;
+  
+}
+
+
+
+
+
+
+.note-option-set{
+
+    /* border: 1.2px solid red; */
+    height: 22px;
+    margin-top: 20px;
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+
+   
+}  
+
+#pin{
+float: right;
+
+}
+
+
+
+
+
+.card-options-icons{
+
+    padding-right: 15px;
+}
+
+
+.userpic_cn{
+    border:1px solid white ;
+    width:20px;
+    border-radius: 100px;
+    height: 20px;
+    background-image: url(https://www.gstatic.com/images/branding/product/2x/avatar_square_blue_120dp.png);
+    background-size: cover;
+    box-shadow: .4px 0.4px gainsboro, 1px 0 0.9em silver;
+    margin-right:5px;
+    
+}
+
+.collaborators_avatar_notecard{
+    display: flex;
+    max-width:80%;
+    height: 26px;
+    padding:3px;
+    flex-wrap: wrap;
+}

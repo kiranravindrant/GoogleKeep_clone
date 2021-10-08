@@ -1,0 +1,26 @@
+.contact{
+width: 286px;
+height: 35px;
+margin-left: 40px;
+background-color: rgba(237, 237, 237, 0.801);
+box-shadow: .1px 0.1px rgb(233, 230, 230), 1px 0 0.1em rgba(99, 96, 96, 0.87) ; 
+margin: -12px;
+}
+
+#simple-popper{
+
+    margin: 16px !important ;
+}
+
+#contactlist{
+
+    font-weight: 400;
+    font-size: 14px;
+}
+
+#email{
+    font-weight: 300;
+    font-size: 14px;
+    margin-top: 0px;
+
+}
