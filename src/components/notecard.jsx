@@ -6,7 +6,184 @@ import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import Optionset from './optionset';
 import Chip from '@mui/material/Chip';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-function Notecard(props) {
+import { deleteNotes } from "../services/dataservice";
+import { archiveUpdate } from '../services/dataservice';
+import { changeColor } from '../services/dataservice';
+import { reminderUpdate } from '../services/dataservice';  
+import { useState } from 'react';
+
+
+export default  function Notecard(props) {
+
+    const[newcolor,updateColor]=useState("")
+    const[newreminder,updateReminder]=useState(props.reminder)
+    const[deleted,setDelStatus]=useState(props.isDeleted)
+ 
+    let noteId=props.id  
+
+
+
+
+
+
+    const deleteNote = ()=>{
+
+      setDelStatus(!deleted)
+    }
+
+    
+
+
+    React.useEffect(() => {
+      if(deleted!=props.isDeleted){
+      deleteNotes(note).then((response)=>{
+        console.log("deletestatus",response)
+        props.showNotes()
+      }).catch((error)=>{
+        console.log(error)
+      })    
+    }   
+
+ 
+      
+    }, [deleted])
+
+
+
+        let note = {
+          noteIdList: [noteId],
+          isDeleted:deleted
+        }
+        
+    
+
+    const  togglearchive=()=>{
+      if(props.isArchived!=true){
+        console.log(" archive status updating...")
+        let archivestatus = {
+            noteIdList: [noteId],
+            isArchived: true
+          };
+
+
+           archiveUpdate(archivestatus).then((response)=>{
+            console.log("archivestatus",response)
+            props.showNotes()
+          }).catch((error)=>{
+            console.log(error)
+          })
+        }else{
+          console.log(" archive status updating...")
+            let archivestatus = {
+                noteIdList: [noteId],
+                isArchived: false
+              };
+
+
+           archiveUpdate(archivestatus).then((response)=>{
+            console.log("archivestatus",response)
+            props.showNotes()
+          }).catch((error)=>{
+            console.log(error)
+          })
+
+
+
+        }
+
+
+
+          
+        
+
+
+    }
+
+    const updatecolor=(colorcode)=>{
+        console.log("color code",colorcode,"recieved in setstate method")
+        updateColor(colorcode)
+        console.log("aftersetting",newcolor)
+       
+     
+
+        }
+
+        let noteData = {
+          noteIdList: [noteId],
+          color: newcolor
+        }
+
+
+
+        React.useEffect(() => { 
+      if(newcolor!=""){
+        changeColor(noteData).then((response)=>{
+          console.log(response)
+          props.showNotes()
+      }).catch((error)=>{
+        console.log(error)
+      })
+       
+      }
+          
+         
+        }, [newcolor])
+
+       
+
+    
+      const updatereminder=(date,time)=>{
+    
+        updateReminder(date + "T" + time)
+          
+      }
+     
+      let reminderdata={
+        noteIdList: [noteId],
+        reminder:newreminder
+
+      }
+
+      React.useEffect(() => {
+        if(newreminder!=props.reminder){
+        reminderUpdate(reminderdata).then((response)=>{
+          console.log("updatetime",response)
+          props.showNotes()
+        }).catch((error)=>{
+          console.log(error)
+
+        })
+      }
+        
+      },[newreminder])
+
+
+
+
+        
+
+       
+      
+
+     
+    
+
+       
+    
+      
+
+
+
+
+      
+      
+
+
+
+
+
+
+
     return (
         <div> 
            <div  className="notecard-editor" style={{backgroundColor:props.color}}>
@@ -56,7 +233,7 @@ function Notecard(props) {
                     </div>
                     
                     <div className="note-option-set" >
-                        <Optionset id={props.id} action="updatenotes"/>
+                        <Optionset id={props.id} action="updatenotes" deletenote={deleteNote} updatearchive={togglearchive} updatecolor={updatecolor} updatereminder={updatereminder}   />
                  
                     
 
@@ -74,4 +251,4 @@ function Notecard(props) {
     )
 }
 
-export default Notecard
+

@@ -87,13 +87,7 @@ export default function Reminder(props) {
 
 
                 
-
-                  
-              
-
-                 
-
-          
+                                                        
 
         </Popper>  
 

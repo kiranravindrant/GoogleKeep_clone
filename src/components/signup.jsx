@@ -9,11 +9,13 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import {useState} from "react";
 import {signUp} from '../services/userservices';
+import { useHistory } from "react-router";
 const firstNameRegex = /^[A-Z][a-zA-Z]{2,}$/;
 const lastNameRegex = /^[A-Z][a-zA-Z]{2,}$/;
 const passwordRegex = /^(?=.{8,}$)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#$%^&*])(?!.*[!@#$%^&*].*[!@#$%^&*]).*$/;
 const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
- function Signup() {
+ 
+function Signup() {
 
     const[firstname,setFirstName]=useState("")
     const[lastname,setLastName]=useState("")
@@ -28,6 +30,8 @@ const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@
     const[displayhelp,setHelpquote]=useState("")
     const[displaypassrule,setPassruleQuote]=useState("")
     
+    let history=useHistory()
+          
 
 
     const takeFirstname= function(event){
@@ -109,11 +113,18 @@ const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@
                 console.log(error)
             })
 
+            
+            history.push("/")
+            
         }
 
 
     }
 
+    const gotologin=()=>{
+        history.push("/")
+
+    }
 
 
     return (
@@ -131,6 +142,7 @@ const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@
                                     id="outlined-size-small"
                                     defaultValue=""
                                     size="small"
+                                    className="txtfield_rsp"
                                     />
                             <span className="lastname">
                                 <TextField
@@ -139,6 +151,7 @@ const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@
                                     id="outlined-size-small"
                                     defaultValue=""
                                     size="small"
+                                    className="txtfield_rsp"
                                     
                                     />  
                             </span>
@@ -153,6 +166,7 @@ const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@
                                     defaultValue=""
                                     size="small"
                                     style={{width:"450px",margintop:'12px'}}
+                                    className="txtfield_rsp"
                                     />
                                 <p>You can use letters,numbers & periods</p>
 
@@ -169,6 +183,7 @@ const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@
                                     defaultValue=""
                                     size="small"
                                     type="password"
+                                    className="txtfield_rsp"
                                     />
                             <span className="confirm">
                                 <TextField
@@ -180,6 +195,7 @@ const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@
                                     defaultValue=""
                                     size="small"
                                     type="password"
+                                    className="txtfield_rsp"
                                     
                                     />  
                             </span>
@@ -193,7 +209,7 @@ const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@
 
                             </div>
 
-                            <span className="misc-links">Sign in  instead</span>
+                            <span className="misc-links" onClick={gotologin}>Sign in  instead</span>
                             <Button onClick={validateAndSubmit} variant="contained" id="next-button">Next</Button>
 
                         </div>
@@ -217,10 +233,10 @@ const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@
 
 
             </div>
-            <div className="footer">
-                    <div>Help</div>
-                    <div>Privacy</div>
-                    <div> Terms</div>
+            <div className="footer-signup">
+                    <div className='footer-items'>Help</div>
+                    <div className='footer-items'>Privacy</div>
+                    <div className='footer-items'> Terms</div>
             </div>
         </div>
     )

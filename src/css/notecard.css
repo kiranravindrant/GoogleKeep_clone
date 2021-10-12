@@ -75,3 +75,69 @@ float: right;
     padding:3px;
     flex-wrap: wrap;
 }
+
+
+@media screen and (max-width:900px ) and (min-width:640px) {
+
+    .notecard-editor{
+        border: 1.2px solid silver;
+        width: 97%;
+        min-height: 110px;
+        margin-left: 20%;
+        margin-top: 10%;
+        border-radius:6px;
+        display: flex;
+        flex-direction: column;
+        align-content: baseline;
+         box-shadow: .4px 0.4px gainsboro, 1px 0 0.9em silver ; 
+       
+    }
+
+    
+}
+
+
+@media screen and (max-width:639px){
+
+
+    .notecard-editor{
+        border: 1.2px solid silver;
+        width: 95%;
+        min-height: 110px;
+        margin-left: 10%;
+        margin-top: 10%;
+        border-radius:6px;
+        display: flex;
+        flex-direction: column;
+        align-content: baseline;
+         box-shadow: .4px 0.4px gainsboro, 1px 0 0.9em silver ; 
+       
+    }
+
+
+
+
+}
+
+
+@media screen  and (max-width:599px) and (min-width:320px){
+
+    .notecard-editor{
+        border: 1.2px solid silver;
+        width: 95%;
+        min-height: 110px;
+        margin-left: 24%;
+        margin-top: 10%;
+        border-radius:6px;
+        display: flex;
+        flex-direction: column;
+        align-content: baseline;
+         box-shadow: .4px 0.4px gainsboro, 1px 0 0.9em silver ; 
+       
+    }
+
+
+
+
+    
+}

@@ -21,7 +21,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 
 
-function Takenote() {
+function Takenote(props) {
 
 const[hide_note_editor,setView]=useState(true)
 const[title,setTitle]=useState("")
@@ -75,6 +75,7 @@ const listentoOptionset=(data)=>{
 
 
             addNotes(data).then((response)=>{
+                props.showNotes()
                 console.log(response)
             }).catch((error)=>{
                 console.log(error)
@@ -188,8 +189,8 @@ const listentoOptionset=(data)=>{
                     <div className="option-set" >
                         <Optionset action="createnote" listentoOptionset={listentoOptionset}   opencollaborator={opencollaborator}  getreminder={getreminder} archiveclick={archiveclick} />
                       
-                    <IconButton  aria-label="refresh"><UndoOutlinedIcon fontSize='inherit'/></IconButton>
-                    <IconButton aria-label="refresh"><RedoOutlinedIcon fontSize='inherit'/></IconButton>
+                    <IconButton id="nullbuttons" aria-label="refresh"><UndoOutlinedIcon fontSize='inherit'/></IconButton>
+                    <IconButton id="nullbuttons" aria-label="refresh"><RedoOutlinedIcon fontSize='inherit'/></IconButton>
                     <Button  onClick={closebutton} className="close">Close</Button>
 
                     </div> 

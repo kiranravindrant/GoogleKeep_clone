@@ -15,12 +15,13 @@ const[notelist,setNoteList]=useState([])
 const [open, setDialogOpen] = React.useState(false);
 const[notedata,setNoteData]=useState({})
 
- useEffect(()=>{
+  useEffect(()=>{
 
   getNotes().then((response)=>{
-    console.log("This is from server",response.data.data.data)
+    let serverdata=response.data.data.data
+    console.log("This is from server",serverdata)
 
-    let maparray=response.data.data.data.filter(function(note){
+    let maparray=serverdata.filter(function(note){
       if(note.isArchived==false && note.isDeleted==false){
         return note
       }
@@ -35,6 +36,71 @@ const[notedata,setNoteData]=useState({})
 
 
  },[]) 
+
+
+
+ const archivednotes=()=>{
+  getNotes().then((response)=>{
+    let serverdata=response.data.data.data
+    console.log("This is from server",serverdata)
+
+    let maparray=serverdata.filter(function(note){
+      if(note.isArchived==true && note.isDeleted==false){
+        return note
+      }
+    })
+    setNoteList(maparray)    
+ 
+
+}).catch((error)=>{
+    console.log(error)
+})
+ }
+
+
+ const trashednotes=()=>{
+  getNotes().then((response)=>{
+    let serverdata=response.data.data.data
+    console.log("This is from server",serverdata)
+
+    let maparray=serverdata.filter(function(note){
+      if(note.isArchived==false && note.isDeleted==true){
+        return note
+      }
+    })
+    setNoteList(maparray)    
+ 
+
+}).catch((error)=>{
+    console.log(error)
+})
+ }
+
+
+  const shownotes =()=>{
+    getNotes().then((response)=>{
+      let serverdata=response.data.data.data
+      console.log("This is from server",serverdata)
+  
+      let maparray=serverdata.filter(function(note){
+        if(note.isArchived==false && note.isDeleted==false){
+          return note
+        }
+      })
+      setNoteList(maparray)    
+   
+  
+  }).catch((error)=>{
+      console.log(error)
+  })
+
+
+}
+
+
+
+
+
 
  const handleClick = (obj) => {
    console.log("clicked note",obj)
@@ -56,7 +122,8 @@ const closeClick=()=>{
         <hr/>
 
         <section className="main-body">
-          <MiniDrawer/>
+          <MiniDrawer listenClickArchive={archivednotes}  listenClickDeleted={trashednotes}  listenClicknotes={shownotes} />
+         
           <div className="inner-container-b">
               <div className="left-menu">
               
@@ -66,17 +133,18 @@ const closeClick=()=>{
               <div className="workspace">
                 
                 
-              <NoteDialog open={open}   closeClick={closeClick} notedata={notedata} />
+              <NoteDialog open={open}   closeClick={closeClick} notedata={notedata}  showNotes={shownotes} />
 
 
 
-                <Takenote/>
+                <Takenote  showNotes={shownotes}/>
 
                 <div className="note-cards">
 
                   {notelist.map((obj,index)=>{
-                    return (                                                     
-                      <Notecard key={index} title={obj.title} description={obj.description} color={obj.color} collaborators={obj.collaborators} reminder={obj.reminder} id={obj.id} noteclick={()=>handleClick(obj)} />
+                    return (     
+                                                                    
+                      <Notecard key={index} title={obj.title} description={obj.description} color={obj.color} collaborators={obj.collaborators} reminder={obj.reminder} id={obj.id} noteclick={()=>handleClick(obj) } showNotes={shownotes}  isDeleted={obj.isDeleted}  isArchived={obj.isArchived}  />
                    
                       )
 

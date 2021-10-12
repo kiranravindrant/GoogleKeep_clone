@@ -55,8 +55,37 @@ export const SearchUserList = (data) => {
 
   }
 
+  export const reminderUpdate = (data) => {
+
+    let response=axios.post(
+      "http://fundoonotes.incubation.bridgelabz.com/api/notes/addUpdateReminderNotes",data,header
+    );
+
+    return response
 
 
+  }
+
+
+  export const archiveUpdate = (data) => {
+
+    let response=axios.post(
+      "http://fundoonotes.incubation.bridgelabz.com/api/notes/archiveNotes",data,header
+    );
+
+    return response
+
+
+  }
+
+
+
+export const deleteNotes= (data) =>{
+
+let response=axios.post("http://fundoonotes.incubation.bridgelabz.com/api/notes/trashNotes",data,header); 
+return response
+
+}
 
 
   

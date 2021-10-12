@@ -1,4 +1,4 @@
-.main-outer-container{
+.main-outer-container-sin{
 
     /* border: 2px solid red; */
     width:100vw;
@@ -10,7 +10,7 @@
    
 }
 
-.inner-container{
+.inner-container-sin{
     display: flex;
     flex-direction: column;
     border: 0.1px solid  rgb(165 163 163 / 52%);
@@ -24,12 +24,12 @@
 
 }
 
-.logo>img{
+.logo-sin>img{
     width:75px
 
 }
 
-.header>h3{
+.header-sin>h3{
     font-weight: 400;
     font-size: x-large;
 }
@@ -56,8 +56,41 @@
     color: rgb(26,115,232);
     font-size: small;
     font-weight:600;
+    cursor: pointer;
 }
-.header{
+.header-sin{
 
     line-height: normal;
+}
+
+@media screen and (min-width:475px) and (max-width:600px){
+    
+
+    .inner-container-sin {
+        display: flex;
+        flex-direction: column;
+        
+        padding: 2%;
+        width:65%;
+        max-height: 900px;
+        justify-content: center;
+    }
+    
+}
+
+@media screen and (min-width:320px) and (max-width:475px) {
+
+    
+    .inner-container-sin {
+        display: flex;
+        flex-direction: column;
+        padding: 2%;
+        border: none;
+        width:90vw;
+        /* max-height: 900px; */
+        justify-content: center;
+
+    }
+
+    
 }

@@ -54,7 +54,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function MiniDrawer() {
+export default function MiniDrawer(props) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -65,6 +65,23 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const showArchived=()=>{
+
+    props.listenClickArchive()
+  }
+
+  const showDeleted=()=>{
+
+    props.listenClickDeleted()
+  }
+
+  const shownotes=()=>{
+
+    props.listenClicknotes()
+  }
+
+
 
   return (
 
@@ -77,7 +94,7 @@ export default function MiniDrawer() {
       <Drawer PaperProps={{ style: { position: "absolute" } }} variant="permanent" open={open} onMouseEnter={handleDrawerOpen} onMouseLeave={handleDrawerClose}>
        
         <List>
-        <ListItem button key="Notes">
+        <ListItem button key="Notes" button onClick={shownotes} >
               <ListItemIcon>
               <LightbulbOutlinedIcon/>
               </ListItemIcon>
@@ -99,14 +116,14 @@ export default function MiniDrawer() {
               <ListItemText primary="Edit labels" />
             </ListItem>   
 
-            <ListItem button key="Archive">
+            <ListItem button onClick={showArchived} key="Archive">
               <ListItemIcon>
               <ArchiveOutlinedIcon/>
               </ListItemIcon>
               <ListItemText primary="Archive" />
             </ListItem>   
 
-            <ListItem button key="Trash">
+            <ListItem button onClick={showDeleted} key="Trash">
               <ListItemIcon>
               <DeleteOutlineOutlinedIcon/>
               </ListItemIcon>

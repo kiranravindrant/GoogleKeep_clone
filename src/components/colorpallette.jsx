@@ -34,7 +34,6 @@ export default function ColorPopper(props) {
 
 
 const colorpicked=(event)=>{
-  console.log(event.target.id)
 props.listentoColorpopper(event.target.id)
  
 

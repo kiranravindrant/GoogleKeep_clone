@@ -63,4 +63,117 @@ justify-content: space-between;
 padding: 10px;
 width:225px;
 
+}    
+
+/* //////////////////////////////////////////////////////////////////////Media Query */
+
+@media screen and (max-width: 1098px) {
+
+    .m-menu{
+        /* border: 2px solid red; */
+        width:28px;
+        height:28px;
+        align-content: center;
+        text-align: center
+    
+    }
+    
+    
+    .logo-title{
+        /* border: 2px solid red; */
+        display: flex;
+        flex-direction: row;
+        width:100px;
+        height:42px;
+        color: #5f6368;
+        font-family: 'Product Sans',Arial,sans-serif;
+        justify-content: center;
+        align-items: center;
+    
+    
+    
+    
+    }
+    #mainlogo{
+    
+        width:40px;
+        height:38px;
+    
+    }
+    .header-f-inner{
+        display: flex;
+        align-items: center;
+        width:98vw;
+        height:60px;
+        /* border: 2px solid green; */
+        justify-content: space-around;
+    }
+    
+    .search-bar{
+        /* border: 2px solid red; */
+        height: 42px;
+        width: 40%;
+        text-align: center;
+        background-color: whitesmoke;
+        border-radius: 6px;
+    }
+    
+    #searchbar{
+        height: 37px;
+        width: inherit;
+        background-color: whitesmoke;
+        border: none;
+        resize: none;
+        outline: none;
+    }
+    
+    .app-menu{
+    display: flex;
+    justify-content: space-;
+    /* border: 2px solid red; */
+    padding: 5px;
+    width:max-content;
+    
+    }
+    
+
+
+
+
+
+    
+
+}
+
+
+@media screen and (min-width:320px) and (max-width:400px){
+    .header-f-inner {
+        display: flex;
+        align-items: center;
+        width: 98vw;
+        height: 60px;
+        /* border: 2px solid green; */
+        justify-content: space-around;
+    }
+
+    #mainlogo {
+        width: 33px;
+        height: 30px;
+    }
+
+    #searchbar {    
+        display: none;
+    }
+
+    .search-bar{
+
+        display: none;
+    }
+
+    .MuiButtonBase-root,.MuiIconButton-root,.MuiIconButton-sizeMedium {
+        padding:3px !important;
+
+
+    }
+
 }

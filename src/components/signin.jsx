@@ -4,13 +4,14 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import mainlogo from '../assets/glogo.jpg'
 import {signin} from '../services/userservices';
+import { useHistory } from "react-router";
 const emailregex=/^\S+@\S+$/;
 const passwordregex=/^(?=.{8,}$)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#$%^&*])(?!.*[!@#$%^&*].*[!@#$%^&*]).*$/;
 
 
 function Signin(){
 
-
+    let history=useHistory()
     const[email,setEmail]=useState("")
     const[password,setPassword]=useState("")
     const[erroremail,setErrorEmail]=useState(false)
@@ -60,33 +61,44 @@ function Signin(){
             }
             signin(obj).then((response)=>{
                 console.log(response)
+                
                 localStorage.setItem("token",response.data.id)
             }).catch((error)=>{
                 console.log(error)
             })
 
+            history.push("/keep")
+
+        }
+    }
+
+
+        const createaccount=()=>{
+        
+            history.push("/signup")
+
+
         }
 
-
          
          
     
     
-    }
+    
 
 
 
     return (
 
-        <div className="main-outer-container">
-            <div className="inner-container">   
+        <div className="main-outer-container-sin">
+            <div className="inner-container-sin">   
             
                     <div className="header-logo">
-                        <div className="logo">
+                        <div className="logo-sin">
                             <img src ={mainlogo} ></img>
                         </div>
 
-                        <div className="header">
+                        <div className="header-sin">
                             <h3>Sign in </h3>
                             <p>Use your Google Account</p>
                         </div>
@@ -113,7 +125,7 @@ function Signin(){
                     <div className="signin-button"> <Button onClick={validateAndSubmit} variant="contained">Sign in</Button>
 
                     </div>
-                    <span className="misc-links">Create Account</span>
+                    <span className="misc-links" onClick={createaccount}>Create Account</span>
             </div>
 
         </div>
